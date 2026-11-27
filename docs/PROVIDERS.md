@@ -69,6 +69,8 @@ quality require live validation in the intended environment.
 
 **Start free, add paid providers as you need them.** Here's the recommended order:
 
+> **Free-only mode (default in this fork):** `config.yaml` sets `budget.mode: cap` with `total_usd: 0.00`, so any tool with a non-zero cost estimate is refused before it runs. Free paths stay open: local TTS (`voicestudio_tts`, `piper_tts`), keyless stock archives (Archive.org, Wikimedia, NASA, Mixkit, Pond5 public domain and others), free-key stock (Pexels, Pixabay, Unsplash), your own `music_library/`, local GPU tools and FFmpeg/Remotion composition. To allow paid APIs, set `mode: warn` and raise `total_usd`.
+
 | Step | Cost | What to set up | What it unlocks |
 |------|------|----------------|-----------------|
 | 1 | **$0** | Pexels + Pixabay | Stock photos and videos — enough to produce basic videos |
