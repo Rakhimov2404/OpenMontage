@@ -75,6 +75,7 @@ quality require live validation in the intended environment.
 | 2 | **$0** | Google API key | TTS with 700+ voices (1M chars/month free) + $300 new account credit |
 | 3 | **$0** | ElevenLabs | Premium TTS + music + SFX (10K chars/month free) |
 | 4 | **$0** | Piper (local install) | Fully offline TTS — no API key, no cost, no network |
+| 4b | **$0** | VoiceStudio (local app) | Local voice cloning TTS in many languages — no API key, no cost |
 | 5 | **~$0.03/image** | fal.ai | FLUX images + Kling/Veo/MiniMax video + Recraft — broad single-key image + video coverage |
 | 6 | **~$0.05/image** | OpenAI | GPT Image 2 images + OpenAI TTS |
 | 7 | **~$0.04/image** | Google Imagen | Imagen 4 images (shares the Google API key) |
@@ -1349,6 +1350,24 @@ piper --download-dir ~/.piper/models --model en_US-lessac-medium
 
 ---
 
+### VoiceStudio — Local Voice Cloning TTS
+
+> **Free, local, cloned voices in many languages** (including Uzbek). [VoiceStudio](https://github.com/debpalash/VoiceStudio) runs its TTS engines on your machine; OpenMontage calls its OpenAI-compatible `POST /v1/audio/speech` route. No API key, no per-character cost, nothing leaves the machine.
+
+**Tool:** `voicestudio_tts`
+**Runtime:** Local (GPU recommended; CPU works but is slow)
+**Env vars:** `VOICESTUDIO_URL` (optional, default `http://localhost:3900`), `VOICESTUDIO_API_KEY` (optional, only if VoiceStudio has `OMNIVOICE_API_KEY` set)
+
+#### Setup
+
+1. Install VoiceStudio from its [latest release](https://github.com/debpalash/VoiceStudio/releases/latest) and open it once so the backend runs.
+2. (Optional) Clone or create a voice profile in VoiceStudio. List profiles with `GET http://localhost:3900/v1/audio/voices`.
+3. Pass the profile ID or name as `voice` (or `voice_id`), and a language code such as `language: "uz"`.
+
+The tool reports `UNAVAILABLE` when the server is not reachable, and falls back to `piper_tts`. Each request accepts up to 4096 characters, so narrate per scene or segment.
+
+---
+
 ### ComfyUI Video — Local Workflows and Hosted Partner Nodes
 
 **Tool:** `comfyui_video`
@@ -1560,6 +1579,7 @@ These tools require only FFmpeg or Python packages — no GPU, no API key.
 | **Pexels** | `PEXELS_API_KEY` | `pexels_image`, `pexels_video` | Free |
 | **Pixabay** | `PIXABAY_API_KEY` | `pixabay_image`, `pixabay_video` | Free |
 | **Piper** | — (install only) | `piper_tts` | Free |
+| **VoiceStudio** | `VOICESTUDIO_URL` (optional) | `voicestudio_tts` | Free (local app) |
 | **Azure AI Speech** | `AZURE_SPEECH_KEY` + `AZURE_SPEECH_REGION` | `azure_stt`, `azure_tts` | Free tier + paid |
 | **Google** | `GOOGLE_API_KEY` (or `GEMINI_API_KEY`) | `google_tts`, `google_imagen`, `google_music`, `gemini_omni_video`, `veo_video` | Free tier (TTS) + paid |
 | **ElevenLabs** | `ELEVENLABS_API_KEY` | `elevenlabs_tts`, `music_gen` | Free tier + paid |
