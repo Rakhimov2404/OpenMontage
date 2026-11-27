@@ -261,7 +261,9 @@ class TestConfig:
 
     def test_load_from_yaml(self):
         config = OpenMontageConfig.load()
-        assert config.budget.total_usd == 10.0
+        # This fork ships free-only: cap mode with a $0 budget.
+        assert config.budget.mode.value == "cap"
+        assert config.budget.total_usd == 0.0
 
 
 # ---- Schemas ----
