@@ -1,0 +1,32 @@
+{
+  "_izoh": "yupay_id — Yupay katalogidagi mahsulot ID'si (admin /yupay_products buyrug'i bilan ko'radi). price — mijoz to'laydigan narx, so'mda.",
+  "categories": [
+    {
+      "title": "💎 Almazlar",
+      "items": [
+        {"key": "d110",  "name": "110 💎",  "price": 13000,  "yupay_id": "CHANGE_ME"},
+        {"key": "d341",  "name": "341 💎",  "price": 36000,  "yupay_id": "CHANGE_ME"},
+        {"key": "d572",  "name": "572 💎",  "price": 58000,  "yupay_id": "CHANGE_ME"},
+        {"key": "d1166", "name": "1166 💎", "price": 115000, "yupay_id": "CHANGE_ME"},
+        {"key": "d2398", "name": "2398 💎", "price": 228000, "yupay_id": "CHANGE_ME"},
+        {"key": "d6160", "name": "6160 💎", "price": 570000, "yupay_id": "CHANGE_ME"}
+      ]
+    },
+    {
+      "title": "🎫 Obunalar",
+      "items": [
+        {"key": "wlite", "name": "Weekly Lite",        "price": 7000,  "yupay_id": "CHANGE_ME"},
+        {"key": "week",  "name": "Haftalik obuna",     "price": 22000, "yupay_id": "CHANGE_ME"},
+        {"key": "month", "name": "Oylik obuna",        "price": 78000, "yupay_id": "CHANGE_ME"}
+      ]
+    },
+    {
+      "title": "⚡ Evo Access",
+      "items": [
+        {"key": "evo3",  "name": "Evo Access 3 kun",  "price": 7000,  "yupay_id": "CHANGE_ME"},
+        {"key": "evo7",  "name": "Evo Access 7 kun",  "price": 11000, "yupay_id": "CHANGE_ME"},
+        {"key": "evo30", "name": "Evo Access 30 kun", "price": 30000, "yupay_id": "CHANGE_ME"}
+      ]
+    }
+  ]
+}
